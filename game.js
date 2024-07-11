@@ -10,7 +10,7 @@ function getComputerChoice(){
 }
 
 function getHumanChoice(){
-    const choice = prompt("Enter your choice for the round");
+    const choice = prompt("Rock, Paper or Scissors!~");
     return choice.toLowerCase();
 }
 
@@ -20,13 +20,13 @@ function whoWon(humanChoice, computerChoice){
         return -1;
     else if(humanChoice === "rock" && computerChoice === "paper" || 
         humanChoice === "paper" && computerChoice === "scissors" ||
-        humanChoice === "scissor" && computerChoice === "rock"){
+        humanChoice === "scissors" && computerChoice === "rock"){
         result = 1;
         computerScore++;
     }
     else if(computerChoice === "rock" && humanChoice === "paper" || 
         computerChoice === "paper" && humanChoice === "scissors" ||
-        computerChoice === "scissor" && humanChoice === "rock"){
+        computerChoice === "scissors" && humanChoice === "rock"){
         result = 0;
         humanScore++;
     }
