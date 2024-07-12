@@ -1,11 +1,20 @@
+const arr = ["rock", "paper", "scissors"];
+
 function getComputerChoice(){
-    const arr = ["rock", "paper", "scissors"];
     const idx = Math.floor(Math.random()*7)%3;
     return arr[idx];
 }
 
 function getHumanChoice(){
-    const choice = prompt("Rock, Paper or Scissors!~");
+    let choice = prompt("Rock, Paper or Scissors!~").toLowerCase();
+    try{
+        let present = arr.find(x => (x==choice));
+        if(!present)
+            throw "Invalid Input! Enter a valid choice:";
+    }
+    catch(error){
+        choice = prompt(error);
+    }
     return choice.toLowerCase();
 }
 
