@@ -1,8 +1,6 @@
-
-
 function getComputerChoice(){
     const arr = ["rock", "paper", "scissors"];
-    const idx = Math.floor(Math.random()*100)%3;
+    const idx = Math.floor(Math.random()*7)%3;
     return arr[idx];
 }
 
