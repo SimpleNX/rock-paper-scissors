@@ -25,3 +25,11 @@ And increments the scores.
 ---
 A function named playGame(), when invoked conducts five rounds.
 The playRound function and score variables are declared inside the playGame function.
+
+## UI
+
+### Buttons
+----
+
+### Other Features
+---
