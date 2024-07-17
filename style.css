@@ -1,0 +1,27 @@
+body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: aquamarine;
+    gap : 40px;
+}
+
+.choices{
+    display: flex;
+    gap : 40px;
+}
+img{
+    box-sizing: border-box;
+    width : 120px;
+    cursor: pointer;
+}
+.display, .score, .played{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.scoreboard{
+    display: flex;
+    align-items: center;
+    gap : 35px;
+}   

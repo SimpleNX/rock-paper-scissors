@@ -1,3 +1,5 @@
+let humanScore = 0;
+let computerScore = 0;
 const arr = ["rock", "paper", "scissors"];
 
 function getComputerChoice(){
@@ -5,73 +7,53 @@ function getComputerChoice(){
     return arr[idx];
 }
 
-function getHumanChoice(){
-    let choice = prompt("Rock, Paper or Scissors!~").toLowerCase();
-    try{
-        let present = arr.find(x => (x==choice));
-        if(!present)
-            throw "Invalid Input! Enter a valid choice:";
-    }
-    catch(error){
-        choice = prompt(error);
-    }
-    return choice.toLowerCase();
+function updateScoreBoard(){
+    let hScore = document.querySelector(".h-score");
+    let cScore = document.querySelector(".c-score");
+    hScore.textContent = humanScore;
+    cScore.textContent = computerScore;
 }
 
-function playGame(){
-    let whoWon = function (humanChoice, computerChoice){
-        let result = -1;
-        if(humanChoice === computerChoice)
-            return -1;
-        else if(humanChoice === "rock" && computerChoice === "paper" || 
-            humanChoice === "paper" && computerChoice === "scissors" ||
-            humanChoice === "scissors" && computerChoice === "rock"){
-            result = 1;
-            computerScore++;
-        }
-        else if(computerChoice === "rock" && humanChoice === "paper" || 
-            computerChoice === "paper" && humanChoice === "scissors" ||
-            computerChoice === "scissors" && humanChoice === "rock"){
-            result = 0;
-            humanScore++;
-        }
-        return result;
-    };
-    let playRound = function (humanChoice, computerChoice){
-        const choices = [humanChoice, computerChoice];
-        console.log(choices);
-        let result = whoWon(humanChoice, computerChoice);
-        if(result === -1){
-            console.log("It's a tie!");
-            return;
-        }
-        let message = "";
-        let other = 0;
-        if(result == 0){
-            message += "You won!";
-            other =1;
-        }
-        else
-            message += "You lose!";
-        console.log(message + " " + `${choices[result]} beats ${choices[other]}`); 
-    };
-    let humanScore = 0;
-    let computerScore = 0;
-    for(i = 0; i<5; i++){
-        let humanChoice = getHumanChoice();
-        let computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }
-    let finalMessage = "";
-    if(humanScore > computerScore)
-        finalMessage += "You win!";
-    else if(humanScore === computerScore)
-        finalMessage += "It's a tie";
-    else
-        finalMessage += "You lose!";
-    console.log(finalMessage + " " + `Score : ${humanScore} : ${computerScore}`);
+function updateMessage(result, humanChoice, computerChoice){
+    let message = document.querySelector("#round-message");
+    let choicePlayed = document.querySelector("#choice-play");
+    choicePlayed.textContent = `You played ${humanChoice} and computer
+    played ${computerChoice}`;
 }
 
-playGame();
+function whoWon(humanChoice, computerChoice){
+    let result = -1;
+    if(humanChoice === computerChoice)
+        return -1;
+    else if(humanChoice === "rock" && computerChoice === "paper" || 
+        humanChoice === "paper" && computerChoice === "scissors" ||
+        humanChoice === "scissors" && computerChoice === "rock"){
+        result = 1;
+        computerScore++;
+    }
+    else if(computerChoice === "rock" && humanChoice === "paper" || 
+        computerChoice === "paper" && humanChoice === "scissors" ||
+        computerChoice === "scissors" && humanChoice === "rock"){
+        result = 0;
+        humanScore++;
+    }
+    return result;
+}
+
+function playRound(humanChoice, computerChoice){
+   let result = whoWon(humanChoice, computerChoice);
+   console.log(humanChoice, computerChoice);
+   updateScoreBoard();
+   updateMessage(result, humanChoice, computerChoice);
+}
+
+
+let buttons = document.querySelector(".choices");
+buttons.addEventListener("click", (event)=>{
+    let humanChoice = event.target.id;
+    if(arr.includes(humanChoice))
+        playRound(humanChoice, getComputerChoice());
+});
+
 
 

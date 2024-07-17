@@ -3,28 +3,30 @@
     <head>
         <title>Rock Paper Scissors!</title>
         <meta charset="UTF-8">
+        <link rel="stylesheet" href="./style.css">
     </head>
     <body>
         <h1>Rock Paper Scissors</h1>
         <div class="choices">
-            <img id="rock">
-            <img id="paper">
-            <img id="scissors">
+            <img id="rock" src="./images/rock.jpeg">
+            <img id="paper" src="./images/paper.jpg">
+            <img id="scissors" src="./images/scissors.svg">
         </div>
         <div class="display">
             <div class="scoreboard">
                 <div class="score">
                     HUMAN:
-                    <p class="h-score"></p>
+                    <p class="h-score">0</p>
                 </div>
                 <div class="score">
                     COMPUTER:
-                    <p class = "c-score"></p>
+                    <p class = "c-score">0</p>
                 </div>
             </div>
             <div class="played">
                 Choices Played:
-                <p id="choice-play"></p>
+                <p id="choice-play">0</p>
+                <p id="round-message">Here</p>
             </div>
         </div>
         <script src="game.js"></script>
