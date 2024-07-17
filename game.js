@@ -19,6 +19,14 @@ function updateMessage(result, humanChoice, computerChoice){
     let choicePlayed = document.querySelector("#choice-play");
     choicePlayed.textContent = `You played ${humanChoice} and computer
     played ${computerChoice}`;
+    message.textContent = (result===0)? "You won!" : 
+        (result===1)? "Computer Won" : "No Result";
+    if(humanScore===5 || computerScore===5){
+        message.textContent = (result===0)? "You won the game of 5 rounds!" :
+            "Computer won the game of 5 rounds!";
+        humanScore=0;
+        computerScore=0;
+    }
 }
 
 function whoWon(humanChoice, computerChoice){
