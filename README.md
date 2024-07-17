@@ -10,6 +10,7 @@ computer which will randomly generate a choice among the three and compete again
 
 I learnt how to write basic javascript programs and function, debugging javascript programs and using the console
 for the all the above things.
+I learnt how to handle events on the page and modifying html elements from JavaScript.
 
 ## What could be improved here
 
